@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: tools
+  name: tools
+  namespace: default
+spec:
+  containers:
+  - image: tools:latest
+    imagePullPolicy: Never
+    name: tools
+    stdin: true
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
