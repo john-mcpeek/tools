@@ -43,7 +43,7 @@ RUN cd /var/tmp &&\
 	install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&\
 	kubectl version --client &&\
 	echo "############################################################ .bashrc" &&\
-	echo 'source /usr/share/bash-completion/bash_completion' >>~/.bashrc &&\
+	echo 'source /etc/profile.d/bash_completion.sh' >>~/.bashrc &&\
 	echo 'source <(kubectl completion bash)' >>~/.bashrc &&\
 	echo 'complete -F __start_kubectl k' >>~/.bashrc &&\
 	echo 'complete -C "/usr/local/bin/aws_completer" aws' >>~/.bashrc &&\
