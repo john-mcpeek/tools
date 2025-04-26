@@ -5,19 +5,19 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update &&\
     apt upgrade -y &&\
     apt install -y \
-        zsh \
-        git \
-        jq \
-        vim \
-        wget \
-        curl \
-        unzip \
-        gnupg \
-        dos2unix \
-        lsb-release \
         ca-certificates \
+        curl \
+        dos2unix \
+        git \
+        gnupg \
+        jq \
+        lsb-release \
+        netcat-openbsd \
         postgresql-client \
-        netcat-openbsd &&\
+        unzip \
+        wget \
+        vim \
+        zsh &&\
 	apt clean
 
 RUN echo "############################################################ oh-my-zsh / powerlevel10k" &&\chsh -s $(which zsh) &&\
