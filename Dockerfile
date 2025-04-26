@@ -40,5 +40,5 @@ RUN groupadd -g 10001 tools &&\
 
 ENTRYPOINT ["/bin/zsh"]
 
-# This creates the tools images and sets up oh-my-zsh with powerlever10k. (Currently comes out to ~566MB image size)
+# This creates the tools images and sets up oh-my-zsh with powerlever10k. (Currently comes out to ~666MB image size)
 # docker build . -t bake && docker run --rm -d -t --name bake-commit bake && sleep 5 && docker commit bake-commit tools && docker stop bake-commit
