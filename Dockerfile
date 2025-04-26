@@ -8,7 +8,7 @@ RUN apt update &&\
     	zsh \
     	git \
     	jq \
-        vim \
+		vim \
 		wget \
     	curl \
 		unzip \
