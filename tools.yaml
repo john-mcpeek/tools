@@ -8,8 +8,23 @@ metadata:
 spec:
   containers:
   - image: tools:latest
-    imagePullPolicy: Never
     name: tools
     stdin: true
+    env:
+      - name: CONTAINER_NAME
+        value: TOOLS_POD
+    securityContext:
+      runAsUser: 10001
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    imagePullPolicy: IfNotPresent
   dnsPolicy: ClusterFirst
   restartPolicy: Never
