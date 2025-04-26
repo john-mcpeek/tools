@@ -24,7 +24,7 @@ RUN echo "############################################################ oh-my-zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
-RUN	echo "############################################################ kubectl" &&\
+RUN echo "############################################################ kubectl" &&\
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&\
     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&\
     kubectl version --client
