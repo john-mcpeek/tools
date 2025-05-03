@@ -20,7 +20,8 @@ RUN apt update &&\
         zsh &&\
 	apt clean
 
-RUN echo "############################################################ oh-my-zsh / powerlevel10k" &&\chsh -s $(which zsh) &&\
+RUN echo "############################################################ oh-my-zsh / powerlevel10k" &&\
+    chsh -s $(which zsh) &&\
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &&\
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
@@ -36,9 +37,11 @@ COPY tools.yaml /root
 RUN groupadd -g 10001 tools &&\
     useradd  -u 10001 -g 10001 -m tools &&\
     dos2unix /root/.zshrc &&\
-    dos2unix /root/.p10k.zsh
+    dos2unix /root/.p10k.zsh &&\
+    cp -R /root/.zshrc /root/.p10k.zsh /root/.oh-my-zsh  /home/tools &&\
+    chown -R 10001:10001 /home/tools
 
 ENTRYPOINT ["/bin/zsh"]
 
 # This creates the tools images and sets up oh-my-zsh with powerlever10k. (Currently comes out to ~666MB image size)
-# docker build . -t bake && docker run --rm -d -t --name bake-commit bake && sleep 5 && docker commit bake-commit tools && docker stop bake-commit
+# docker build . -t bake && docker run --rm -d -t --name bake-commit bake && sleep 5 && docker commit bake-commit toolsx && docker stop bake-commit && docker run --rm -d -t --user 10001:10001 --name bake-commit toolsx && sleep 5 && docker commit bake-commit tools && docker stop bake-commit
