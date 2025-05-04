@@ -12,7 +12,7 @@ spec:
     stdin: true
     env:
       - name: CONTAINER_NAME
-        value: TOOLS_POD
+        value: TOOLS POD
     securityContext:
       runAsUser: 10001
       allowPrivilegeEscalation: false

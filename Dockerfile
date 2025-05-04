@@ -33,15 +33,17 @@ RUN echo "############################################################ kubectl" 
 COPY .zshrc /root
 COPY .p10k.zsh /root
 COPY tools.yaml /root
+COPY p10k-prompt-functions.zsh /root
 
 RUN groupadd -g 10001 tools &&\
     useradd  -u 10001 -g 10001 -m tools &&\
     dos2unix /root/.zshrc &&\
     dos2unix /root/.p10k.zsh &&\
-    cp -R /root/.zshrc /root/.p10k.zsh /root/.oh-my-zsh  /home/tools &&\
+    dos2unix /root/p10k-prompt-functions.zsh &&\
+    cp -R /root/.zshrc /root/.p10k.zsh /root/p10k-prompt-functions.zsh /root/.oh-my-zsh  /home/tools &&\
     chown -R 10001:10001 /home/tools
 
 ENTRYPOINT ["/bin/zsh"]
 
-# This creates the tools images and sets up oh-my-zsh with powerlever10k. (Currently comes out to ~666MB image size)
-# docker build . -t bake && docker run --rm -d -t --name bake-commit bake && sleep 5 && docker commit bake-commit toolsx && docker stop bake-commit && docker run --rm -d -t --user 10001:10001 --name bake-commit toolsx && sleep 5 && docker commit bake-commit tools && docker stop bake-commit
+# This creates the tools images and sets up oh-my-zsh with powerlever10k. (Currently comes out to ~695MB image size)
+# Look in README.md for shell command to build the image
