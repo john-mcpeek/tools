@@ -9,8 +9,6 @@ function prompt_environment_name() {
     else
       p10k segment -f green -t "${ENVIRONMENT_NAME}"
     fi
-  else
-    p10k segment -f green -t "No ENV Name"
   fi
 }
 
