@@ -10,6 +10,7 @@ RUN apt update &&\
         dos2unix \
         git \
         gnupg \
+        iproute2 \
         jq \
         lsb-release \
         netcat-openbsd \
