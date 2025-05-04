@@ -3,14 +3,14 @@
 function prompt_environment_name() {
   if [[ -v ENVIRONMENT_NAME ]]; then
     if [[ $ENVIRONMENT_NAME == "PROD" ]]; then
-      p10k segment -b white -f red -t "${ENVIRONMENT_NAME}"
+      p10k segment -f red -t "${ENVIRONMENT_NAME}"
     elif [[ $ENVIRONMENT_NAME == "UAT" ]]; then
-      p10k segment -b white -f yellow -t "${ENVIRONMENT_NAME}"
+      p10k segment -f yellow -t "${ENVIRONMENT_NAME}"
     else
-      p10k segment -b white -f green -t "${ENVIRONMENT_NAME}"
+      p10k segment -f green -t "${ENVIRONMENT_NAME}"
     fi
   else
-    p10k segment -b white -f green -t "No ENV Name"
+    p10k segment -f green -t "No ENV Name"
   fi
 }
 
