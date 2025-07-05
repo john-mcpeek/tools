@@ -16,6 +16,10 @@ This will build and bake an image with powerlevel10k setup for `root` and the `t
  docker stop bake-commit
 ```
 
+```shell
+docker run --rm -it tools
+```
+
 | File name                 | Description                                                               |
 |---------------------------|---------------------------------------------------------------------------|
 | Dockerfile                | Builds an image with all the tools we need.                               |
